@@ -26,61 +26,61 @@ site:example.com ext:php inurl:?
 ### API Endpoints
 
 ```
-site:example[.]com inurl:api | site:*/rest | site:*/v1 | site:*/v2 | site:*/v3
+site:example.com (inurl:api OR inurl:/rest OR inurl:/v1 OR inurl:/v2 OR inurl:/v3)
 ```
 
 ### Juicy Extensions
 
 ```
-site:"example[.]com" ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env | ext:sh | ext:bak | ext:backup | ext:swp | ext:old | ext:~ | ext:git | ext:svn | ext:htpasswd | ext:htaccess | ext:json
+site:example.com (ext:log OR ext:txt OR ext:conf OR ext:cnf OR ext:ini OR ext:env OR ext:sh OR ext:bak OR ext:backup OR ext:swp OR ext:old OR ext:~ OR ext:git OR ext:svn OR ext:htpasswd OR ext:htaccess OR ext:json)
 ```
 
 ### High % inurl keywords
 
 ```
-site:example[.]com inurl:conf | inurl:env | inurl:cgi | inurl:bin | inurl:etc | inurl:root | inurl:sql | inurl:backup | inurl:admin | inurl:php | inurl:websql
+site:example.com (inurl:conf OR inurl:env OR inurl:cgi OR inurl:bin OR inurl:etc OR inurl:root OR inurl:sql OR inurl:backup OR inurl:admin OR inurl:php OR inurl:websql)
 ```
 
 ### Server Errors
 
 ```
-site:example[.]com inurl:"error" | intitle:"exception" | intext:”Warning: mysql_connect()” | intitle:"failure" | intext:”on * using password:” | intitle:"server at" | inurl:exception | "database error" | "SQL syntax" | "undefined index" | "unhandled exception" | "stack trace"
+site:example.com (intitle:"exception" OR intext:"Warning: mysql_connect()" OR intitle:"failure" OR intext:"on * using password:" OR intitle:"server at" OR inurl:exception OR "database error" OR "SQL syntax" OR "undefined index" OR "unhandled exception" OR "stack trace")
 ```
 
 ### XSS prone parameters
 
 ```
-site:example.com inurl:q= | inurl:s= | inurl:search= | inurl:query= | inurl:keyword= | inurl:lang= inurl:&
+site:example.com (inurl:q= OR inurl:s= OR inurl:"search=" OR inurl:"query=" OR inurl:"keyword=" OR inurl:lang=)
 ```
 
 ### Open Redirect prone parameters
 
 ```
-site:example.com inurl:url= | inurl:return= | inurl:next= | inurl:redirect= | inurl:redir= | inurl:ret= | inurl:r2= | inurl:page= inurl:& inurl:http
+site:example.com (inurl:url= OR inurl:return= OR inurl:next= OR inurl:redirect= OR inurl:redir= OR inurl:ret= OR inurl:r2= OR inurl:page= OR inurl:go= OR inurl:dest= OR inurl:target=) OR (intitle:"Redirecting..." OR intitle:"Redirect")
 ```
 
 ### SQLi Prone Parameters
 
 ```
-site:example.com inurl:id= | inurl:pid= | inurl:category= | inurl:cat= | inurl:action= | inurl:sid= | inurl:dir= inurl:&
+site:example.com (inurl:id= OR inurl:pid= OR inurl:category= OR inurl:cat= OR inurl:action= OR inurl:sid= OR inurl:dir= OR inurl:page= OR inurl:p= OR inurl:num= OR inurl:offset= OR inurl:limit= OR inurl:start= OR inurl:end=)
 ```
 
 ### SSRF Prone Parameters
 
 ```
-site:example.com inurl:http | inurl:url= | inurl:path= | inurl:dest= | inurl:html= | inurl:data= | inurl:domain=  | inurl:page= inurl:&
+site:example.com (inurl:http OR inurl:https) (inurl:url OR inurl:path OR inurl:dest OR inurl:target OR inurl:redirect OR inurl:location OR inurl:goto OR inurl:link) (inurl:file OR inurl:load OR inurl:get OR inurl:include OR inurl:source OR inurl:resource OR inurl:lookup OR inurl:resolve OR inurl:open OR inurl:read OR inurl:access OR inurl:retrieve OR inurl:obtain OR inurl:acquire OR inurl:procure)
 ```
 
 ### LFI Prone Parameters
 
 ```
-site:example.com inurl:include | inurl:dir | inurl:detail= | inurl:file= | inurl:folder= | inurl:inc= | inurl:locate= | inurl:doc= | inurl:conf= inurl:&
+site:example.com (inurl:include OR inurl:inc OR inurl:require OR inurl:load OR inurl:source OR inurl:page OR inurl:file OR inurl:doc OR inurl:conf OR inurl:config OR inurl:xml OR inurl:php OR inurl:txt) (inurl:dir OR inurl:path OR inurl:folder OR inurl:file OR inurl:page OR inurl:view)
 ```
 
 ### RCE Prone Parameters
 
 ```
-site:example.com inurl:cmd | inurl:exec= | inurl:query= | inurl:code= | inurl:do= | inurl:run= | inurl:read=  | inurl:ping= inurl:&
+site:example.com (inurl:cmd OR inurl:exec OR inurl:execute OR inurl:run OR inurl:shell OR inurl:system OR inurl:os) (inurl:query OR inurl:search OR inurl:find OR inurl:lookup OR inurl:locate OR inurl:get OR inurl:fetch) (inurl:data OR inurl:input OR inurl:param OR inurl:arg OR inurl:value OR inurl:option)
 ```
 
 ### File upload endpoints
