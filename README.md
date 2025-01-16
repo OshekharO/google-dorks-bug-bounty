@@ -38,49 +38,49 @@ site:"example[.]com" ext:log | ext:txt | ext:conf | ext:cnf | ext:ini | ext:env 
 ### High % inurl keywords
 
 ```
-inurl:conf | inurl:env | inurl:cgi | inurl:bin | inurl:etc | inurl:root | inurl:sql | inurl:backup | inurl:admin | inurl:php site:example[.]com
+site:example[.]com inurl:conf | inurl:env | inurl:cgi | inurl:bin | inurl:etc | inurl:root | inurl:sql | inurl:backup | inurl:admin | inurl:php | inurl:websql
 ```
 
 ### Server Errors
 
 ```
-inurl:"error" | intitle:"exception" | intitle:"failure" | intitle:"server at" | inurl:exception | "database error" | "SQL syntax" | "undefined index" | "unhandled exception" | "stack trace" site:example[.]com
+site:example[.]com inurl:"error" | intitle:"exception" | intext:”Warning: mysql_connect()” | intitle:"failure" | intext:”on * using password:” | intitle:"server at" | inurl:exception | "database error" | "SQL syntax" | "undefined index" | "unhandled exception" | "stack trace"
 ```
 
 ### XSS prone parameters
 
 ```
-inurl:q= | inurl:s= | inurl:search= | inurl:query= | inurl:keyword= | inurl:lang= inurl:& site:example.com
+site:example.com inurl:q= | inurl:s= | inurl:search= | inurl:query= | inurl:keyword= | inurl:lang= inurl:&
 ```
 
 ### Open Redirect prone parameters
 
 ```
-inurl:url= | inurl:return= | inurl:next= | inurl:redirect= | inurl:redir= | inurl:ret= | inurl:r2= | inurl:page= inurl:& inurl:http site:example.com
+site:example.com inurl:url= | inurl:return= | inurl:next= | inurl:redirect= | inurl:redir= | inurl:ret= | inurl:r2= | inurl:page= inurl:& inurl:http
 ```
 
 ### SQLi Prone Parameters
 
 ```
-inurl:id= | inurl:pid= | inurl:category= | inurl:cat= | inurl:action= | inurl:sid= | inurl:dir= inurl:& site:example.com
+site:example.com inurl:id= | inurl:pid= | inurl:category= | inurl:cat= | inurl:action= | inurl:sid= | inurl:dir= inurl:&
 ```
 
 ### SSRF Prone Parameters
 
 ```
-inurl:http | inurl:url= | inurl:path= | inurl:dest= | inurl:html= | inurl:data= | inurl:domain=  | inurl:page= inurl:& site:example.com
+site:example.com inurl:http | inurl:url= | inurl:path= | inurl:dest= | inurl:html= | inurl:data= | inurl:domain=  | inurl:page= inurl:&
 ```
 
 ### LFI Prone Parameters
 
 ```
-inurl:include | inurl:dir | inurl:detail= | inurl:file= | inurl:folder= | inurl:inc= | inurl:locate= | inurl:doc= | inurl:conf= inurl:& site:example.com
+site:example.com inurl:include | inurl:dir | inurl:detail= | inurl:file= | inurl:folder= | inurl:inc= | inurl:locate= | inurl:doc= | inurl:conf= inurl:&
 ```
 
 ### RCE Prone Parameters
 
 ```
-inurl:cmd | inurl:exec= | inurl:query= | inurl:code= | inurl:do= | inurl:run= | inurl:read=  | inurl:ping= inurl:& site:example.com
+site:example.com inurl:cmd | inurl:exec= | inurl:query= | inurl:code= | inurl:do= | inurl:run= | inurl:read=  | inurl:ping= inurl:&
 ```
 
 ### File upload endpoints
@@ -92,13 +92,13 @@ site:example.com ”choose file”
 ### API Docs
 
 ```
-inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer site:"example[.]com"
+site:"example[.]com" inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer
 ```
 
 ### Login Pages
 
 ```
-inurl:login | inurl:signin | intitle:login | intitle:signin | inurl:secure site:example[.]com
+site:example[.]com inurl:login | inurl:signin | intitle:login | intitle:signin | inurl:secure | inurl:sign-in | inurl:portal
 ```
 
 ### Test Environments
@@ -220,6 +220,20 @@ site:jfrog.io "example[.]com"
 
 ```
 site:firebaseio.com "example[.]com"
+```
+
+### JWT Token
+
+```
+site:example.com intext:"Bearer "
+```
+
+```
+site:example.com inurl:token=
+```
+
+```
+site:example.com ext:json intext:"jwt"
 ```
 
 ## Dorks that work better w/o domain
