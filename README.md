@@ -111,7 +111,7 @@ site:example.com (inurl:test OR inurl:env OR inurl:dev OR inurl:staging OR inurl
 
 ```
 site:example.com (ext:txt OR ext:pdf OR ext:xml OR ext:xls OR ext:xlsx OR ext:ppt OR ext:pptx OR ext:doc OR ext:docx OR ext:rtf OR ext:csv OR ext:log OR ext:json OR ext:config OR ext:ini)
-(intext:"confidential" OR intext:"Not for Public Release" OR intext:"internal use only" OR intext:"do not distribute" OR intext:"restricted" OR intext:"private" OR intext:"sensitive" OR intext:"classified" OR intext:"proprietary")
+(intext:confidential OR intext:Not for Public Release OR intext:internal use only OR intext:do not distribute OR intext:restricted OR intext:private OR intext:sensitive OR intext:classified OR intext:proprietary)
 ```
 
 ### Sensitive Parameters
