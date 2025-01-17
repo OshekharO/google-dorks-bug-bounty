@@ -4,183 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Dorks for Bug Bounty</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
-        :root {
-            --primary-color: #4CAF50;
-            --background-color: #111111;
-            --text-color: #ffffff;
-            --accent-color: #69f0ae;
-            --border-color: rgba(255, 255, 255, 0.1);
-        }
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            padding: 40px 20px;
-            line-height: 1.6;
+            background-color: #111111;
+            color: #ffffff;
         }
-
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+        .custom-gradient-text {
+            background: linear-gradient(45deg, #4CAF50, #69f0ae);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-align: center;
         }
-
-        .search-container {
-            margin: 40px 0;
-            text-align: center;
+        .list-group-item {
+            background-color: transparent;
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.1);
         }
-
-        label {
-            display: block;
-            font-size: 1.1em;
-            margin-bottom: 10px;
-            color: #888;
+        .list-group-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
-
-        input {
-            width: 100%;
-            max-width: 500px;
-            font-size: 1.1em;
-            padding: 12px 20px;
-            border: none;
-            border-bottom: 2px solid var(--border-color);
+        .form-control {
             background-color: rgba(255, 255, 255, 0.05);
-            color: var(--text-color);
-            transition: all 0.3s ease;
-            border-radius: 4px;
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.1);
         }
-
-        input:focus {
-            outline: none;
-            border-bottom-color: var(--accent-color);
-            background-color: rgba(255, 255, 255, 0.08);
-        }
-
-        .social-links {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .social-links a {
-            display: inline-block;
-            margin: 0 10px;
-            padding: 8px 16px;
-            color: #888;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--accent-color);
-        }
-
-        #dorkList {
-            margin: 40px 0;
-            padding: 0;
-        }
-
-        li {
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border-color);
-            transition: transform 0.2s ease;
-        }
-
-        li:hover {
-            transform: translateX(10px);
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--text-color);
-            transition: color 0.2s ease;
-        }
-
-        a:hover {
-            color: var(--accent-color);
-        }
-
-        p.description {
-            color: #888;
-            font-size: 0.9em;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        section {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        h2 {
-            font-size: 1.8em;
-            color: #888;
-            margin-bottom: 20px;
-        }
-
-        #tooltip {
-            position: absolute;
-            background-color: rgba(0, 0, 0, 0.9);
-            color: #888;
-            padding: 8px 12px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            z-index: 1000;
-            max-width: 300px;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 20px;
-            }
-            
-            input {
-                width: calc(100% - 40px);
-            }
+        .form-control:focus {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border-color: #69f0ae;
+            box-shadow: 0 0 0 0.25rem rgba(105, 240, 174, 0.25);
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>Google Dorks for Bug Bounty</h1>
-        
-        <div class="social-links">
-            <a href="https://twitter.com/TakSec" target="_blank" rel="noopener">
-                <img src="https://img.shields.io/twitter/url/https/twitter.com/TakSec.svg?style=social&label=Follow%20%40TakSec" alt="Twitter Follow Badge">
+    <div class="container py-5">
+        <h1 class="text-center mb-4 custom-gradient-text">Google Dorks for Bug Bounty</h1>
+
+
+        <div class="text-center mb-4">
+            <a href="https://twitter.com/TakSec" target="_blank" class="btn btn-outline-light me-2">
+                Twitter
             </a>
-            <a href="https://github.com/TakSec/google-dorks-bug-bounty/" target="_blank" rel="noopener">
+            <a href="https://github.com/TakSec/google-dorks-bug-bounty/" target="_blank" class="btn btn-outline-light">
                 GitHub Repo
             </a>
         </div>
 
-        <div class="search-container">
-            <label for="domainInput">Enter a domain:</label>
-            <input type="text" id="domainInput" placeholder="example.com" oninput="updateDomain()">
+
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-6">
+                <label for="domainInput" class="form-label text-muted">Enter a domain:</label>
+                <input type="text" class="form-control" id="domainInput" placeholder="example.com" oninput="updateDomain()">
+                <small class="form-text text-muted">For multiple domains, separate by comma. e.g., example1.com, example2.com</small>
+            </div>
         </div>
-        
-        <div id="tooltip" class="hidden">For multiple domains, separate by comma. e.g., example1.com, example2.com</div>
+
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <ul id="dorkList" class="list-group"></ul>
+            </div>
+        </div>
+
+
+        <section class="mt-5">
+            <h2 class="text-muted mb-3">Additional Resources</h2>
+            <div class="list-group">
+                <a href="https://github.com/TakSec/google-dorks-bug-bounty/" target="_blank" class="list-group-item list-group-item-action">
+                    Google Dorks For Bug Bounty
+                </a>
+                <a href="https://thegrayarea.tech/5-google-dorks-every-hacker-needs-to-know-fed21022a906" target="_blank" class="list-group-item list-group-item-action">
+                    5 Google Dorks Every Hacker Needs to Know
+                </a>
+                <a href="https://infosecwriteups.com/uncover-hidden-gems-in-the-cloud-with-google-dorks-8621e56a329d" target="_blank" class="list-group-item list-group-item-action">
+                    Uncover Hidden Gems in the Cloud with Google Dorks
+                </a>
+                <a href="https://infosecwriteups.com/10-google-dorks-for-sensitive-data-9454b09edc12" target="_blank" class="list-group-item list-group-item-action">
+                    10 Google Dorks for Sensitive Data
+                </a>
+            </div>
+        </section>
     </div>
 
-    <ul id="dorkList"></ul>
 
-    <section>
-        <h2>Additional Resources</h2>
-        <ul class="link-list">
-            <li><a href="https://github.com/TakSec/google-dorks-bug-bounty/" target="_blank" rel="noopener">Google Dorks For Bug Bounty</a></li>
-            <li><a href="https://thegrayarea.tech/5-google-dorks-every-hacker-needs-to-know-fed21022a906" target="_blank" rel="noopener">5 Google Dorks Every Hacker Needs to Know</a></li>
-            <li><a href="https://infosecwriteups.com/uncover-hidden-gems-in-the-cloud-with-google-dorks-8621e56a329d" target="_blank" rel="noopener">Uncover Hidden Gems in the Cloud with Google Dorks</a></li>
-            <li><a href="https://infosecwriteups.com/10-google-dorks-for-sensitive-data-9454b09edc12" target="_blank" rel="noopener">10 Google Dorks for Sensitive Data</a></li>
-        </ul>
-    </section>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
         const domainInput = document.getElementById('domainInput');
