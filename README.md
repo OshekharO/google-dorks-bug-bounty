@@ -225,7 +225,7 @@ site:firebaseio.com "example[.]com"
 ### JWT Token
 
 ```
-site:example.com intext:"Bearer "
+site:example.com intext:Bearer
 ```
 
 ```
@@ -233,7 +233,7 @@ site:example.com inurl:token=
 ```
 
 ```
-site:example.com ext:json intext:"jwt"
+site:example.com ext:json intext:jwt
 ```
 
 ## Dorks that work better w/o domain
