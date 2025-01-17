@@ -14,6 +14,12 @@
         }
 
 
+        @font-face {
+            font-family: 'Hack';
+            src: url('https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.woff2') format('woff2');
+        }
+
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -23,37 +29,23 @@
         }
 
 
-        html, body {
-            height: 100%;
-            overflow-x: hidden;
-        }
-
-
         body {
             font-family: 'Hack', 'Courier New', monospace;
             background-color: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
 
         .terminal {
-            width: 100%;
-            max-width: 1200px;
-            height: calc(100vh - 40px);
-            max-height: 900px;
             background-color: rgba(0,0,0,0.9);
             border: 2px solid var(--border-color);
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0 0 15px rgba(0,255,65,0.3);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
         }
 
 
@@ -120,9 +112,8 @@
 
         #dorkList {
             list-style-type: none;
-            max-height: calc(100vh - 300px);
+            max-height: 500px;
             overflow-y: auto;
-            flex-grow: 1;
         }
 
 
@@ -160,40 +151,16 @@
         }
 
 
-        /* Custom Scrollbar */
-        #dorkList::-webkit-scrollbar {
-            width: 8px;
-        }
-
-
-        #dorkList::-webkit-scrollbar-track {
-            background: var(--background-color);
-        }
-
-
-        #dorkList::-webkit-scrollbar-thumb {
-            background-color: var(--highlight-color);
-            border-radius: 4px;
-        }
-
-
         @media (max-width: 768px) {
             .terminal {
-                height: 100vh;
-                max-height: none;
+                height: 100%;
+                max-height: 100%;
                 border: none;
                 border-radius: 0;
                 padding: 10px;
             }
-
-
             h1 {
                 font-size: 1.2rem;
-            }
-
-
-            #dorkList {
-                max-height: calc(100vh - 250px);
             }
         }
 
