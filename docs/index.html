@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Dorks for Bug Bounty</title>
+    <title>Google Dorks Terminal</title>
     <style>
         :root {
-            --primary-color: #2196F3;
-            --background-color: #121212;
-            --text-color: #e0e0e0;
-            --accent-color: #03A9F4;
-            --border-color: rgba(255, 255, 255, 0.12);
-            --card-background: #1E1E1E;
+            --background-color: #0c0c0c;
+            --text-color: #00ff41;
+            --border-color: #00ff41;
+            --highlight-color: #00ff41;
+            --secondary-text: #00b341;
+        }
+
+
+        @font-face {
+            font-family: 'Hack';
+            src: url('https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.woff2') format('woff2');
         }
 
 
@@ -19,146 +24,182 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--highlight-color) var(--background-color);
         }
 
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: 'Hack', 'Courier New', monospace;
             background-color: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
-            max-width: 1000px;
+            padding: 20px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
         }
 
 
-        .container {
-            background-color: var(--card-background);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        .terminal {
+            background-color: rgba(0,0,0,0.9);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0,255,65,0.3);
+        }
+
+
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
 
 
         h1 {
-            text-align: center;
-            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 1.5rem;
-            font-size: 2.5rem;
-        }
-
-
-        .search-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-
-        .search-container input {
-            width: 100%;
-            max-width: 500px;
-            padding: 0.75rem 1rem;
-            background-color: rgba(255,255,255,0.05);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            color: var(--text-color);
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-
-        .search-container input:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(3, 169, 244, 0.2);
-        }
-
-
-        #dorkList {
-            list-style-type: none;
-            margin-top: 1rem;
-        }
-
-
-        #dorkList li {
-            background-color: rgba(255,255,255,0.05);
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-
-        #dorkList li:hover {
-            background-color: rgba(255,255,255,0.1);
-            transform: translateY(-5px);
-        }
-
-
-        #dorkList a {
-            color: var(--accent-color);
-            text-decoration: none;
-            word-break: break-all;
+            color: var(--highlight-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px rgba(0,255,65,0.5);
         }
 
 
         .social-links {
             display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            gap: 15px;
         }
 
 
         .social-links a {
-            color: var(--text-color);
+            color: var(--secondary-text);
             text-decoration: none;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
+            transition: color 0.3s ease;
         }
 
 
         .social-links a:hover {
-            opacity: 1;
+            color: var(--highlight-color);
+            text-shadow: 0 0 5px rgba(0,255,65,0.5);
+        }
+
+
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+
+        .terminal-input {
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid var(--border-color);
+            color: var(--text-color);
+            font-family: 'Hack', monospace;
+            font-size: 1rem;
+            padding: 10px 0;
+            outline: none;
+        }
+
+
+        .terminal-input::placeholder {
+            color: var(--secondary-text);
+        }
+
+
+        #dorkList {
+            list-style-type: none;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+
+        #dorkList li {
+            background-color: rgba(0,255,65,0.05);
+            border-left: 3px solid var(--border-color);
+            padding: 10px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+
+        #dorkList li:hover {
+            background-color: rgba(0,255,65,0.1);
+            border-left-color: var(--highlight-color);
+        }
+
+
+        #dorkList a {
+            color: var(--text-color);
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+
+        #dorkList a:hover {
+            text-decoration: underline;
+        }
+
+
+        .description {
+            color: var(--secondary-text);
+            font-size: 0.8rem;
+            margin-bottom: 5px;
         }
 
 
         @media (max-width: 768px) {
-            body {
-                padding: 1rem;
+            .terminal {
+                padding: 10px;
             }
-            .container {
-                padding: 1rem;
+
+
+            h1 {
+                font-size: 1.2rem;
             }
         }
+
+
+        /* Cursor Blink Effect */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+
+        .terminal-input::after {
+            content: '_';
+            animation: blink 1s infinite;
+        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>Google Dorks for Bug Bounty</h1>
-        
-        <div class="social-links">
-            <a href="https://twitter.com/TakSec" target="_blank">Twitter</a>
-            <a href="https://github.com/TakSec/google-dorks-bug-bounty/" target="_blank">GitHub Repo</a>
+    <div class="terminal">
+        <div class="terminal-header">
+            <h1>Google Dorks Terminal</h1>
+            <div class="social-links">
+                <a href="https://twitter.com/TakSec" target="_blank">@TakSec</a>
+                <a href="https://github.com/TakSec/google-dorks-bug-bounty/" target="_blank">GitHub</a>
+            </div>
         </div>
 
 
         <div class="search-container">
-            <input type="text" id="domainInput" placeholder="Enter domain(s)" oninput="updateDomain()">
+            <input 
+                type="text" 
+                id="domainInput" 
+                class="terminal-input" 
+                placeholder="Enter domain(s) | example.com, target.com" 
+                oninput="updateDomain()"
+            >
         </div>
 
 
         <ul id="dorkList"></ul>
     </div>
-
-
     <script>
         const domainInput = document.getElementById('domainInput');
         const tooltip = document.getElementById('tooltip');
