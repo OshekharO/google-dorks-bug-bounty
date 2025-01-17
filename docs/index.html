@@ -1,10 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Google Dorks for Bug Bounty</title>
-    <style>
+    <!-- Basic SEO Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Dorks - Cybersecurity OSINT Tool</title>
+    <meta name="description" content="Advanced Google Dorks terminal for cybersecurity professionals. Discover hidden vulnerabilities, sensitive information, and perform OSINT reconnaissance.">
+    
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://saksham.thedev.id/google-dorks-bug-bounty">
+    <meta property="og:title" content="Google Dorks Terminal - Cybersecurity OSINT Tool">
+    <meta property="og:description" content="Advanced Google Dorks terminal for cybersecurity professionals. Discover hidden vulnerabilities, sensitive information, and perform OSINT reconnaissance.">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:domain" content="saksham.thedev.id">
+    <meta name="twitter:url" content="https://saksham.thedev.id/google-dorks-bug-bounty">
+    <meta name="twitter:title" content="Google Dorks Terminal - Cybersecurity OSINT Tool">
+    <meta name="twitter:description" content="Advanced Google Dorks terminal for cybersecurity professionals. Discover hidden vulnerabilities, sensitive information, and perform OSINT reconnaissance.">
+    <meta name="twitter:creator" content="@puritywashere">
+
+    <!-- Robots Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://saksham.thedev.id/google-dorks-bug-bounty">
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="keywords" content="google dorks, cybersecurity, osint, vulnerability research, ethical hacking, information gathering, penetration testing">
+    <meta name="author" content="OshekharO">
+
+    <!-- Language and Geo Targeting -->
+    <meta http-equiv="content-language" content="en-US">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Google Dorks",
+        "url": "https://saksham.thedev.id/google-dorks-bug-bounty",
+        "description": "Advanced Google Dorks terminal for cybersecurity professionals to discover hidden vulnerabilities and perform OSINT reconnaissance.",
+        "applicationCategory": "Cybersecurity Tool",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "OshekharO",
+            "url": "https://github.com/OshekharO"
+        }
+    }
+    </script>
+</head>
+  <style>
       :root {
         --primary-color: #2196f3;
         --background-color: #121212;
@@ -121,16 +175,29 @@
         margin-bottom: 1.5rem;
       }
 
-      .social-links a {
+      .terminal-link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
         color: var(--text-color);
         text-decoration: none;
-        opacity: 0.7;
-        transition: opacity 0.3s ease;
-      }
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+        padding: 5px 10px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
 
-      .social-links a:hover {
+    .terminal-link:hover {
+        color: var(--primary-color);
+        border-color: rgba(0,255,65,0.3);
+        background-color: rgba(0,255,65,0.1);
+        text-shadow: 0 0 5px rgba(0,255,65,0.3);
+    }
+
+     .social-links a:hover {
         opacity: 1;
-      }
+     }
 
       @media (max-width: 768px) {
         body {
@@ -148,8 +215,8 @@
       <h1>Google Dorks for Bug Bounty</h1>
 
       <div class="social-links">
-        <a href="https://twitter.com/TakSec" target="_blank">Twitter</a>
-        <a href="https://github.com/TakSec/google-dorks-bug-bounty/" target="_blank">GitHub</a>
+        <a href="https://twitter.com/TakSec" target="_blank" class="terminal-link">TWITTER</a>
+        <a href="https://github.com/TakSec/google-dorks-bug-bounty/" target="_blank" class="terminal-link">GITHUB</a>
       </div>
 
       <div class="search-container">
