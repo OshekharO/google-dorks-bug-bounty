@@ -46,10 +46,10 @@
 
 
         <div class="text-center mb-4">
-            <a href="https://twitter.com/TakSec" target="_blank" class="btn btn-outline-light me-2">
-                Twitter
+            <a href="https://www.linkedin.com/in/oshekher" target="_blank" class="btn btn-outline-light me-2">
+                Linkedin
             </a>
-            <a href="https://github.com/TakSec/google-dorks-bug-bounty/" target="_blank" class="btn btn-outline-light">
+            <a href="https://github.com/OshekharO/google-dorks-bug-bounty" target="_blank" class="btn btn-outline-light">
                 GitHub Repo
             </a>
         </div>
@@ -57,9 +57,9 @@
 
         <div class="row justify-content-center mb-4">
             <div class="col-md-6">
-                <label for="domainInput" class="form-label text-muted">Enter a domain:</label>
+                <label for="domainInput" class="form-label text-success">Enter a domain:</label>
                 <input type="text" class="form-control" id="domainInput" placeholder="example.com" oninput="updateDomain()">
-                <small class="form-text text-muted">For multiple domains, separate by comma. e.g., example1.com, example2.com</small>
+                <small class="form-text text-white">For multiple domains, separate by comma. e.g., example1.com, example2.com</small>
             </div>
         </div>
 
@@ -111,7 +111,7 @@
         let originalDorks = [];
         
         async function fetchDorks() {
-            const url = "https://raw.githubusercontent.com/TakSec/google-dorks-bug-bounty/main/README.md";
+            const url = "https://raw.githubusercontent.com/OshekharO/google-dorks-bug-bounty/refs/heads/main/README.md";
             const response = await fetch(url);
             const text = await response.text();
 
